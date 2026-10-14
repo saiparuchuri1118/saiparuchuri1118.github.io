@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sai Paruchuri · AI Agent Engineer</title>
+  <meta name="description" content="Sai Paruchuri builds production AI agents and the Java services they run on. Software Development Engineer at Amazon in Austin, TX.">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:title" content="Sai Paruchuri · AI Agent Engineer">
+  <meta property="og:description" content="Production AI agents and the Java services they run on.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saiparuchuri1118.github.io/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="brand" href="#top">Sai Paruchuri</a>
+      <nav aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#projects">Open source</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="nav-cta" href="Sai_Paruchuri_Resume.pdf">Résumé (PDF)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- Hero: the thesis on the left, an illustrative agent trace on the right -->
+    <section id="top" class="wrap hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Software Development Engineer · Amazon · Austin, TX</p>
+        <h1>I build AI agents that hold up in production.</h1>
+        <p class="lede">Right now that is a multi-agent support bot on Amazon Bedrock. It answers ~90 questions a day in under 60 seconds, 99% faster than the 24+ hours they used to wait for an engineer. Underneath are the Java services I have shipped for three years at Amazon and Truist Bank.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#case-support-bot">Read the support-bot case study</a>
+          <a class="btn btn-ghost" href="Sai_Paruchuri_Resume.pdf">Download résumé</a>
+        </div>
+      </div>
+
+      <figure class="trace" aria-labelledby="trace-caption">
+        <div class="trace-head">
+          <span>trace · support_bot.handle_question</span>
+          <span class="trace-tag">illustrative</span>
+        </div>
+        <p class="trace-query">question: "How do I request access to the staging cluster?"</p>
+        <ol class="trace-rows">
+          <li class="span-row root"><span class="span-name">handle_question</span><span class="track"><span class="bar" style="--s:0;--l:100"></span></span></li>
+          <li class="span-row retrieval"><span class="span-name">retrieve.bm25</span><span class="track"><span class="bar" style="--s:3;--l:24"></span></span></li>
+          <li class="span-row retrieval"><span class="span-name">retrieve.dense</span><span class="track"><span class="bar" style="--s:3;--l:30"></span></span></li>
+          <li class="span-row retrieval"><span class="span-name">retrieve.rerank</span><span class="track"><span class="bar" style="--s:34;--l:12"></span></span></li>
+          <li class="span-row generate"><span class="span-name">generate.answer</span><span class="track"><span class="bar" style="--s:47;--l:33"></span></span></li>
+          <li class="span-row critic"><span class="span-name">critic.validate</span><span class="track"><span class="bar" style="--s:81;--l:17"></span></span></li>
+          <li class="span-row learner"><span class="span-name">learner.review</span><span class="track"><span class="bar-async">runs daily on channel feedback</span></span></li>
+        </ol>
+        <ul class="trace-legend" aria-label="Legend">
+          <li><span class="key key-retrieval"></span>retrieval agent</li>
+          <li><span class="key key-critic"></span>critic agent</li>
+          <li><span class="key key-learner"></span>self-learning agent</li>
+        </ul>
+        <figcaption id="trace-caption" class="visually-hidden">An illustrative trace of the support bot answering one question: hybrid retrieval, answer generation, then a critic check. A self-learning agent runs separately each day.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Case study index -->
+    <section id="work" class="wrap section">
+      <h2 class="section-title">Selected work</h2>
+      <div class="case-index">
+        <div class="case-index-head" aria-hidden="true">
+          <span>Case study</span>
+          <span>Where</span>
+          <span>Result</span>
+        </div>
+        <ul class="case-index-list">
+          <li><a class="case-index-row" href="#case-support-bot">
+            <span class="case-index-title">A support bot that checks its own answers</span>
+            <span>Amazon</span>
+            <span>99% faster first response, 78% CSAT</span>
+          </a></li>
+          <li><a class="case-index-row" href="#projects">
+            <span class="case-index-title">ragscope: a CI gate for RAG retrieval quality</span>
+            <span>Open source</span>
+            <span>Fails the build when retrieval regresses</span>
+          </a></li>
+          <li><a class="case-index-row" href="#case-aws-migration">
+            <span class="case-index-title">Moving 40+ APIs to AWS without an outage</span>
+            <span>Truist Bank</span>
+            <span>Zero production downtime</span>
+          </a></li>
+          <li><a class="case-index-row" href="#case-latency">
+            <span class="case-index-title">Faster, safer reads for customer workflows</span>
+            <span>Amazon</span>
+            <span>25% lower retrieval latency</span>
+          </a></li>
+          <li><a class="case-index-row" href="#case-frontend">
+            <span class="case-index-title">Five seconds off the slowest user journeys</span>
+            <span>Truist Bank</span>
+            <span>Critical journeys load 5+ s faster</span>
+          </a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Featured case study -->
+    <article id="case-support-bot" class="wrap feature">
+      <div class="feature-inner">
+        <header class="case-header">
+          <p class="eyebrow eyebrow-accent">Case study · Amazon · Amazon Bedrock</p>
+          <h2>A support bot that checks its own answers</h2>
+        </header>
+
+        <div class="pa-grid">
+          <section>
+            <h3 class="label">Problem</h3>
+            <p>A security team's Slack channel receives ~90 customer questions a day. Engineers answered them in the order they arrived, so a question waited 24 hours or more for its first reply.</p>
+          </section>
+          <section>
+            <h3 class="label">Approach</h3>
+            <p>A three-agent system on Amazon Bedrock using Claude Opus 4.6. A retrieval agent finds the right knowledge, a critic agent validates each draft against several criteria before it posts, and a self-learning agent reviews the day's channel activity and corrects answers from user feedback.</p>
+          </section>
+          <section>
+            <h3 class="label">Result</h3>
+            <p>First replies now arrive in under 60 seconds, a 99% reduction in response time. Every answer carries thumbs-up and thumbs-down feedback, and the bot holds a 78% CSAT.</p>
+          </section>
+        </div>
+
+        <dl class="result-stats">
+          <div>
+            <dt>Faster first response</dt>
+            <dd>99% <span>24+ hours → under 60 seconds</span></dd>
+          </div>
+          <div>
+            <dt>User satisfaction (CSAT)</dt>
+            <dd>78%</dd>
+          </div>
+          <div>
+            <dt>Questions answered daily</dt>
+            <dd>~90</dd>
+          </div>
+        </dl>
+
+        <figure class="flow" aria-labelledby="flow-caption">
+          <ol class="flow-steps">
+            <li class="flow-step"><strong>Question</strong><span>posted in Slack</span></li>
+            <li class="flow-step flow-strong"><strong>Retrieval agent</strong><span>BM25 + dense vectors, then a reranker</span></li>
+            <li class="flow-step"><strong>Draft answer</strong><span>Claude on Bedrock</span></li>
+            <li class="flow-step flow-accent"><strong>Critic agent</strong><span>multi-criteria check before posting</span></li>
+            <li class="flow-step"><strong>Reply</strong><span>back in the thread</span></li>
+          </ol>
+          <div class="flow-loop"><strong>Self-learning agent</strong><span>Reviews the channel daily and feeds corrections back into retrieval</span></div>
+          <figcaption id="flow-caption">How one question moves through the agents. Internal names and data are left out.</figcaption>
+        </figure>
+
+        <div class="decisions">
+          <h3 class="label">Design decisions</h3>
+          <dl>
+            <div>
+              <dt>Hybrid retrieval</dt>
+              <dd>Keyword search (BM25) catches exact terms like tool names and error codes that embeddings blur. Dense vectors catch questions phrased differently from the docs. A reranker orders the merged results so the model sees the best passages first.</dd>
+            </div>
+            <div>
+              <dt>A critic before every reply</dt>
+              <dd>A second agent reviews each draft before anyone sees it. Answers that are unsupported or incomplete never reach the channel.</dd>
+            </div>
+            <div>
+              <dt>Learning from the channel</dt>
+              <dd>The self-learning agent reads a day of feedback at a time, so the bot gets better without a retraining cycle.</dd>
+            </div>
+          </dl>
+        </div>
+
+        <ul class="tags" aria-label="Stack">
+          <li>Amazon Bedrock</li><li>Claude Opus 4.6</li><li>RAG</li><li>Open Knowledge Format (OKF)</li><li>BM25</li><li>Vector search</li><li>Reranking</li><li>Multi-agent orchestration</li><li>Slack</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- Open source -->
+    <section id="projects" class="wrap section">
+      <h2 class="section-title">Open source</h2>
+      <article class="project">
+        <div class="project-copy">
+          <p class="case-meta">Python · MIT license · <a href="https://github.com/saiparuchuri1118/ragscope">github.com/saiparuchuri1118/ragscope</a></p>
+          <h3>ragscope: a CI gate for RAG retrieval quality</h3>
+          <p>Most RAG projects ship a chatbot and check a few answers by eye. ragscope measures retrieval against a golden dataset, compares every run with a committed baseline, and fails the build when quality drops. A chunking change that quietly costs recall never reaches production.</p>
+          <dl class="project-points">
+            <div>
+              <dt>Rank-aware metrics</dt>
+              <dd>Hit rate, precision, recall, MRR and nDCG at any cutoff, with graded relevance judgments.</dd>
+            </div>
+            <div>
+              <dt>Thresholds and baselines</dt>
+              <dd>Thresholds catch a pipeline that was never good enough. Baselines catch a slow slide. Tolerance is absolute, so it doesn't loosen as scores fall.</dd>
+            </div>
+            <div>
+              <dt>Tested like infrastructure</dt>
+              <dd>184 tests at 100% line and branch coverage on Python 3.9 to 3.13. A CI canary plants an off-by-one bug and requires the gate to reject it.</dd>
+            </div>
+            <div>
+              <dt>Drops into any stack</dt>
+              <dd>Zero runtime dependencies. Anything with a <code>retrieve(query, k)</code> method can be evaluated.</dd>
+            </div>
+          </dl>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://github.com/saiparuchuri1118/ragscope">View the code on GitHub</a>
+          </div>
+        </div>
+        <figure class="console" aria-labelledby="console-caption">
+<pre><code><span class="c-prompt">$</span> ragscope run myproject.search:build \
+    --dataset golden.jsonl --min recall@5=0.80
+
+example-corpus  (10 examples)
+
+metric            mean   defined  skipped
+-----------------------------------------
+hit_rate@5      1.0000        10        0
+precision@5     0.2600        10        0
+recall@5        0.8667        10        0
+ndcg@5          0.8209        10        0
+mrr             0.8083        10        0
+
+latency  p50 0.1ms  p95 0.1ms
+
+<span class="c-pass">PASS</span>  2 check(s) satisfied</code></pre>
+          <figcaption id="console-caption">Sample run on the bundled example corpus. Exit code 0 on pass, 1 on failure.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- Smaller case studies -->
+    <section class="wrap section cases" aria-label="More case studies">
+      <article id="case-aws-migration" class="case">
+        <p class="case-meta">Truist Bank · 2023–2024</p>
+        <h3>Moving 40+ APIs to AWS without an outage</h3>
+        <p>I built cloud-native Java services and REST APIs and moved more than 40 endpoints to AWS ECS behind API Gateway. Customers kept using the bank's applications throughout, with zero production downtime.</p>
+        <ul class="tags" aria-label="Stack"><li>Java</li><li>Spring Boot</li><li>AWS ECS</li><li>API Gateway</li></ul>
+      </article>
+
+      <article id="case-latency" class="case">
+        <p class="case-meta">Amazon · 2024–now</p>
+        <h3>Faster, safer reads for customer workflows</h3>
+        <p>I built RESTful microservices in Spring Boot on AWS that cut average data-retrieval latency by 25% across customer-facing workflows. I also added OAuth2 authentication with Spring Security, which held up under peak traffic.</p>
+        <ul class="tags" aria-label="Stack"><li>Java</li><li>Spring Boot</li><li>Spring Security</li><li>OAuth2</li><li>AWS</li></ul>
+      </article>
+
+      <article id="case-frontend" class="case">
+        <p class="case-meta">Truist Bank · 2023–2024</p>
+        <h3>Five seconds off the slowest user journeys</h3>
+        <!-- TODO(metric): add before/after load times, e.g. "from 8 s to 3 s" -->
+        <p>I profiled AngularJS workflows in Chrome DevTools and added lazy loading where pages fetched more than they showed. The critical user journeys now load more than five seconds faster.</p>
+        <ul class="tags" aria-label="Stack"><li>AngularJS</li><li>Chrome DevTools</li><li>Lazy loading</li></ul>
+      </article>
+
+      <article id="case-messaging" class="case">
+        <p class="case-meta">Truist Bank · 2023–2024</p>
+        <h3>Asynchronous processing for peak hours</h3>
+        <!-- TODO(metric): state as before → after throughput or a percentage -->
+        <p>I built JMS-based pipelines so transactions are processed asynchronously. During peak usage they handle more than 300 additional messages per hour.</p>
+        <ul class="tags" aria-label="Stack"><li>Java</li><li>JMS</li><li>Async processing</li></ul>
+      </article>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="wrap section">
+      <h2 class="section-title">Experience</h2>
+      <ol class="timeline">
+        <li class="role">
+          <div class="role-when">Dec 2024 – now</div>
+          <div class="role-body">
+            <h3>Software Development Engineer <span class="role-org">Amazon · Austin, TX</span></h3>
+            <ul>
+              <li>Reduced first-response time by 99% (24+ hours to under 60 seconds) for ~90 daily support questions with a multi-agent Slack bot on Amazon Bedrock.</li>
+              <li>Achieved 78% CSAT with a retrieval, critic and self-learning agent design.</li>
+              <li>Built hybrid retrieval combining dense vectors, BM25 keyword matching and a reranker to cut irrelevant and hallucinated answers.</li>
+              <li>Built Spring Boot microservices that reduced average data-retrieval latency by 25%.</li>
+              <li>Added OAuth2 and Spring Security authentication that stayed available through peak traffic.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="role-when">May 2023 – Dec 2024</div>
+          <div class="role-body">
+            <h3>Full Stack Developer <span class="role-org">Truist Bank · Dallas, TX</span></h3>
+            <ul>
+              <li>Migrated 40+ endpoints to AWS ECS and API Gateway with zero production downtime.</li>
+              <li>Cut critical user-journey load times by more than five seconds with profiling and lazy loading.</li>
+              <li>Built asynchronous JMS pipelines that process 300+ more messages per hour at peak.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="role">
+          <div class="role-when">2021 – 2023</div>
+          <div class="role-body">
+            <h3>M.S., Computer and Information Science <span class="role-org">Southern Arkansas University</span></h3>
+          </div>
+        </li>
+        <li class="role">
+          <div class="role-when">Sep 2020 – Aug 2021</div>
+          <div class="role-body">
+            <h3>Software Development Intern <span class="role-org">Hartex Rubber · Hyderabad, India</span></h3>
+            <ul>
+              <li>Built a MERN-stack app with REST APIs to track 500+ operational entities in real time.</li>
+              <li>Wrote unit and integration tests with Jest and Enzyme.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="wrap section">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <section>
+          <h3 class="label">Agents and LLMs</h3>
+          <p>Amazon Bedrock, Claude, GPT models, LangGraph, LangChain, AutoGen, RAG, hybrid retrieval, reranking, retrieval evaluation (recall@k, nDCG, MRR), function calling, structured outputs, model routing, FastAPI orchestration</p>
+        </section>
+        <section>
+          <h3 class="label">Back end</h3>
+          <p>Java, Spring Boot, Spring Security, OAuth2, REST APIs, microservices, JMS, Python</p>
+        </section>
+        <section>
+          <h3 class="label">Cloud and data</h3>
+          <p>AWS (EC2, S3, Lambda, ECS, API Gateway), Docker, Kubernetes, PostgreSQL, MySQL, MongoDB, DynamoDB</p>
+        </section>
+        <section>
+          <h3 class="label">Front end</h3>
+          <p>TypeScript, JavaScript, React, AngularJS, Node.js, Express</p>
+        </section>
+        <section>
+          <h3 class="label">Testing and delivery</h3>
+          <p>pytest, Jest, Enzyme, GitHub Actions, CI quality gates, Git</p>
+        </section>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="site-footer">
+    <div class="wrap footer-row">
+      <div class="footer-copy">
+        <h2>Hiring for agents or back end? Write to me.</h2>
+        <p>Open to applied-AI and agent engineering roles. Based in Austin, TX.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:saiparuchuri1118@gmail.com">saiparuchuri1118@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/sai-paruchuri-962374346/">LinkedIn</a></li>
+        <li><a href="https://github.com/saiparuchuri1118">GitHub</a></li>
+        <li><a href="Sai_Paruchuri_Resume.pdf">Résumé (PDF)</a></li>
+      </ul>
+    </div>
+    <p class="wrap colophon">© <span id="year">2026</span> Sai Paruchuri</p>
+  </footer>
+</body>
+</html>

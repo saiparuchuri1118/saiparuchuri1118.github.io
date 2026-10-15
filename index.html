@@ -5,17 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Sai Paruchuri · AI Agent Engineer</title>
   <meta name="description" content="Sai Paruchuri builds production AI agents and the Java services they run on. Software Development Engineer at Amazon in Austin, TX.">
+  <meta name="author" content="Sai Sumanth Paruchuri">
   <meta name="color-scheme" content="light dark">
+  <link rel="canonical" href="https://saiparuchuri1118.github.io/">
+
+  <!-- Link previews (LinkedIn, Slack, email, X) -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Sai Paruchuri">
   <meta property="og:title" content="Sai Paruchuri · AI Agent Engineer">
-  <meta property="og:description" content="Production AI agents and the Java services they run on.">
-  <meta property="og:type" content="website">
+  <meta property="og:description" content="Software Development Engineer at Amazon. Multi-agent support bot on Amazon Bedrock: 99% faster first response at 78% CSAT.">
   <meta property="og:url" content="https://saiparuchuri1118.github.io/">
+  <meta property="og:image" content="https://saiparuchuri1118.github.io/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sai Paruchuri, AI agent engineer: I build AI agents that hold up in production.">
+  <meta property="profile:first_name" content="Sai">
+  <meta property="profile:last_name" content="Paruchuri">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sai Paruchuri · AI Agent Engineer">
+  <meta name="twitter:description" content="Production AI agents and the Java services they run on.">
+  <meta name="twitter:image" content="https://saiparuchuri1118.github.io/assets/og-image.png">
+
+  <!-- Structured data so search engines can identify the person behind the site -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Sai Sumanth Paruchuri",
+    "alternateName": "Sai Paruchuri",
+    "url": "https://saiparuchuri1118.github.io/",
+    "image": "https://saiparuchuri1118.github.io/assets/og-image.png",
+    "jobTitle": "Software Development Engineer",
+    "worksFor": { "@type": "Organization", "name": "Amazon" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "addressCountry": "US" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Southern Arkansas University" },
+    "knowsAbout": ["AI agents", "Multi-agent systems", "Retrieval-Augmented Generation", "Amazon Bedrock", "RAG evaluation", "Java", "Spring Boot", "AWS"],
+    "sameAs": [
+      "https://www.linkedin.com/in/sai-paruchuri-962374346/",
+      "https://github.com/saiparuchuri1118"
+    ]
+  }
+  </script>
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Geist+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="assets/css/styles.css">
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/ragscope-demo.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -41,6 +78,7 @@
     <!-- Hero: the thesis on the left, an illustrative agent trace on the right -->
     <section id="top" class="wrap hero">
       <div class="hero-copy">
+        <p class="status"><span class="status-dot" aria-hidden="true"></span>Open to applied-AI and agent engineering roles</p>
         <p class="eyebrow">Software Development Engineer · Amazon · Austin, TX</p>
         <h1>I build AI agents that hold up in production.</h1>
         <p class="lede">Right now that is a multi-agent support bot on Amazon Bedrock. It answers ~90 questions a day in under 60 seconds, 99% faster than the 24+ hours they used to wait for an engineer. Underneath are the Java services I have shipped for three years at Amazon and Truist Bank.</p>
@@ -48,6 +86,10 @@
           <a class="btn btn-primary" href="#case-support-bot">Read the support-bot case study</a>
           <a class="btn btn-ghost" href="Sai_Paruchuri_Resume.pdf">Download résumé</a>
         </div>
+        <dl class="glance" aria-label="At a glance">
+          <div><dt>Experience</dt><dd>3+ years · Amazon, Truist Bank</dd></div>
+          <div><dt>Focus</dt><dd>Agents, RAG, Java/AWS</dd></div>
+        </dl>
       </div>
 
       <figure class="trace" aria-labelledby="trace-caption">
@@ -217,24 +259,34 @@
             <a class="btn btn-primary" href="https://github.com/saiparuchuri1118/ragscope">View the code on GitHub</a>
           </div>
         </div>
-        <figure class="console" aria-labelledby="console-caption">
-<pre><code><span class="c-prompt">$</span> ragscope run myproject.search:build \
-    --dataset golden.jsonl --min recall@5=0.80
+        <figure id="ragscope-demo" class="console playground" aria-labelledby="pg-caption">
+          <div class="pg-head">
+            <h4 class="pg-title">Try it: break the retriever</h4>
+            <span class="pg-tag">runs in your browser</span>
+          </div>
+          <fieldset class="pg-variants">
+            <legend>Retriever under test</legend>
+            <label><input type="radio" name="pg-variant" value="baseline" checked> BM25, as committed</label>
+            <label><input type="radio" name="pg-variant" value="off-by-one"> Bug: drops the top result</label>
+            <label><input type="radio" name="pg-variant" value="top-2"> Bug: returns only 2 results</label>
+            <label><input type="radio" name="pg-variant" value="no-tf"> Change: ignore term frequency</label>
+          </fieldset>
+<pre aria-live="polite"><code data-output>metric           mean  baseline   change
+----------------------------------------
+hit_rate@5     1.0000    1.0000   0.0000
+precision@5    0.2600    0.2600   0.0000
+recall@5       0.8667    0.8667   0.0000
+ndcg@5         0.8209    0.8209   0.0000
+mrr            0.8083    0.8083   0.0000
 
-example-corpus  (10 examples)
+<span class="c-pass">PASS</span>  21 check(s) satisfied
 
-metric            mean   defined  skipped
------------------------------------------
-hit_rate@5      1.0000        10        0
-precision@5     0.2600        10        0
-recall@5        0.8667        10        0
-ndcg@5          0.8209        10        0
-mrr             0.8083        10        0
-
-latency  p50 0.1ms  p95 0.1ms
-
-<span class="c-pass">PASS</span>  2 check(s) satisfied</code></pre>
-          <figcaption id="console-caption">Sample run on the bundled example corpus. Exit code 0 on pass, 1 on failure.</figcaption>
+exit code 0: safe to merge</code></pre>
+          <details class="pg-details" data-details hidden>
+            <summary>See each question's top 5 results</summary>
+            <ol class="pg-questions" data-questions></ol>
+          </details>
+          <figcaption id="pg-caption">The repo's real example: 10 questions over 12 documents, the same BM25 retriever, and the same gate as its CI (recall@5 ≥ 0.60, hit_rate@5 ≥ 0.70, nDCG@5 ≥ 0.45, and no metric more than 0.02 below the committed baseline).</figcaption>
         </figure>
       </article>
     </section>

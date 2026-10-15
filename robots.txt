@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://saiparuchuri1118.github.io/sitemap.xml
